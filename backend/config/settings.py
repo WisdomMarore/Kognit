@@ -17,8 +17,8 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('DJANGO_SECRET_KEY')
-DEBUG = config('DEBUG', default=True, cast=bool)
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+DEBUG = config('DEBUG', default=False, cast=bool)
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1').split(',')
 
 
 # Application definition
@@ -40,6 +40,7 @@ AUTH_USER_MODEL = 'core.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -150,3 +151,25 @@ PAYNOW_RETURN_URL = config('PAYNOW_RETURN_URL', default='http://localhost:5173/b
 PAYNOW_RESULT_URL = config('PAYNOW_RESULT_URL', default='http://localhost:8000/api/billing/webhook/')
 FRONTEND_URL = config('FRONTEND_URL', default='http://localhost:5173')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='Kognit <noreply@recall.app>')
+
+
+# ---- Production settings (Render) ----
+import dj_database_url
+
+RENDER_HOST = config('RENDER_EXTERNAL_HOSTNAME', default='')
+if RENDER_HOST:
+    ALLOWED_HOSTS.append(RENDER_HOST)
+    CSRF_TRUSTED_ORIGINS = ['https://' + RENDER_HOST]
+
+DATABASE_URL = config('DATABASE_URL', default='')
+if DATABASE_URL:
+    DATABASES['default'] = dj_database_url.parse(DATABASE_URL, conn_max_age=600, ssl_require=True)
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STORAGES = {
+    'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'},
+    'staticfiles': {'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage'},
+}
+
+if not DEBUG:
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
