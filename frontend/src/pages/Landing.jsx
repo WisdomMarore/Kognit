@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../components/Logo';
 
 // Keep TRIAL_DAYS in sync with TRIAL_DAYS in backend/.env
-const TRIAL_DAYS = 14;
+const TRIAL_DAYS = 7;
 const PRICE = '$4.99';
 
 const CARD = 'shadow-[0_1px_0_0_rgba(201,191,168,0.08)_inset,0_4px_12px_rgba(0,0,0,0.3)]';
