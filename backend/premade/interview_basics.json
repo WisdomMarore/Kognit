@@ -1,0 +1,15 @@
+﻿{
+  "title": "Interview Basics",
+  "description": "The core ideas behind answering common interview questions well.",
+  "category": "Interviews",
+  "cards": [
+    {"front": "What is a good structure for answering \"Tell me about yourself\"?", "back": "Present, past, future: what you do now, the experience that got you here, and why this role is next. Keep it to about 60 to 90 seconds."},
+    {"front": "What does the STAR method stand for?", "back": "Situation, Task, Action, Result. Use it to answer behavioural questions with a concrete example."},
+    {"front": "In a STAR answer, which part deserves the most time?", "back": "The Action: what you personally did. Then the Result, ideally with a number or a clear outcome."},
+    {"front": "How should you answer \"What is your biggest weakness?\"", "back": "Name a real but non-critical weakness and explain what you are doing to improve it. Avoid disguised strengths like \"I work too hard\"."},
+    {"front": "How do you prepare for \"Why do you want to work here?\"", "back": "Research the organisation's work and values, then connect them to specific things you want to do or learn."},
+    {"front": "Why should you prepare questions to ask the interviewer?", "back": "It shows real interest and helps you judge the fit. Ask about the team, expectations in the first 90 days, and how success is measured."},
+    {"front": "What should you do when you do not know the answer to a question?", "back": "Stay calm, say what you do know, explain how you would find out, and do not bluff."},
+    {"front": "What is a good way to end an interview?", "back": "Thank them, restate your interest in the role in one sentence, and ask about next steps."}
+  ]
+}

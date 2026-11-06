@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", serif;
+  --font-body: "IBM Plex Sans", sans-serif;
+
+  --color-ink: #14181F;
+  --color-ink-2: #1E2430;
+  --color-paper: #F2ECDD;
+  --color-ember: #D68A3D;
+  --color-ember-dark: #B8712E;
+  --color-moss: #6B8F71;
+  --color-rose: #B5555A;
+  --color-sand: #C9BFA8;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out both;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-ink);
+}
+@layer components {
+  .card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 24px;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  }
+  .card-interactive:hover {
+    border-color: rgba(214, 138, 61, 0.35);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+  }
+  .card-hero {
+    background: linear-gradient(135deg, rgba(214, 138, 61, 0.12), rgba(214, 138, 61, 0.02));
+    border-color: rgba(214, 138, 61, 0.28);
+  }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(242, 236, 221, 0.5);
+  }
+  .icon-tile {
+    width: 36px; height: 36px;
+    display: grid; place-items: center;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #D68A3D;
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    font-size: 13px; font-weight: 600;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .pill:hover { border-color: #D68A3D; background: rgba(214, 138, 61, 0.08); }
+}
+
+@theme {
+  --radius-sm: 0.75rem;
+}
+
+@layer components {
+  .surface {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .surface-hero {
+    background: linear-gradient(135deg, rgba(214, 138, 61, 0.12), rgba(214, 138, 61, 0.02));
+    border-color: rgba(214, 138, 61, 0.28);
+  }
+}
+
+/* Old parchment forms used dark text. Inside dark cards, flip it to light.
+   Outside any @layer so it beats Tailwind's utilities. Ember buttons are skipped. */
+.surface [class*="text-ink"]:not([class*="bg-ember"]) {
+  color: rgba(242, 236, 221, 0.75);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(242, 236, 221, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 236, 221, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 30%, transparent 75%);
+}

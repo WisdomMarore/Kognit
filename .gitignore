@@ -1,0 +1,22 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+venv/
+.venv/
+__pycache__/
+*.pyc
+staticfiles/
+
+# node
+node_modules/
+dist/
+
+# editor, OS and my own backups
+.vscode/
+.DS_Store
+Thumbs.db
+*.bak
+backup-*
