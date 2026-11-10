@@ -1,0 +1,1 @@
+Kognit is a spaced-repetition flashcard application designed for learners preparing for exam revision, university courses, professional certifications, interview prep, and languages. The platform uses AI to automatically generate flashcards from notes, PDFs, and photos, and schedules reviews based on cognitive science principles to optimize retention.
