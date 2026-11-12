@@ -104,7 +104,7 @@ const FAQS = [
   },
   {
     q: 'Who can see my notes?',
-    a: "Your decks are stored in your account. When you generate cards, the text, PDF or photo you provide is sent to Google's Gemini service to write them, so please don't upload anything confidential.",
+    a: "Your decks are stored in your account. When you generate cards, the text, PDF or photo you provide is sent to a third-party AI service to write them, so please don't upload anything confidential.",
   },
   {
     q: 'Can I try it without an account?',
